@@ -7,14 +7,21 @@ public class Whip : MonoBehaviour
 {
     public AudioClip clip;
     public TMPro.TMP_Text text;
+    public bool isFlat = true;
+    private Rigidbody rigid;
 
-    void Update()
+    private void Start()
     {
-        // TODO: trigger sound effect when flicking the phone
-        // To play the audio clip use GetComponent<AudioSource>().PlayOneShot(clip);
+        rigid = GetComponent<Rigidbody>();
+    }
 
-        // Update text to show acceleration values
-        if(text)
-            text.text = "Acceleration " + Input.acceleration.ToString();
+    private void Update()
+    {
+        Vector3 tilt = Input.acceleration;
+        if (isFlat)
+            tilt = Quaternion.Euler(90, 0, 0) * tilt;
+
+        rigid.AddForce(tilt);
+        Debug.DrawRay(transform.position + Vector3.up, tilt, Color.red);
     }
 }

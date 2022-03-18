@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Balls/Balls.unity
     guid: 0e40aca3d4d4e4283937d35e9bd73017
-  - enabled: 0
+  - enabled: 1
     path: Assets/Whip/Whip.unity
     guid: 798540b9ea6b445b597886da50823a28
   m_configObjects: {}
